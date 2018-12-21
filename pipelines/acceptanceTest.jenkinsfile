@@ -2,11 +2,19 @@
 @Library('shared-lib@master') _
 
 script {
-		stage("Smoke") {
-				echo "Run smoke tests..."
-		}
+        addParameters {
+                concurrent = false
+                rotator = logRotator(daysToKeepStr: '20', numToKeepStr: '100')
+                parameters = [
+                        string(name: 'SERVICE_NAME', defaultValue: '', description: 'The name of the service')
+                ]
+        }
 
-		stage("Acceptance") {
-				echo "Run acceptance tests..."
-		}
+        stage("Smoke") {
+                echo "Run smoke tests..."
+        }
+
+        stage("Acceptance") {
+                echo "Run acceptance tests..."
+        } 
 }
