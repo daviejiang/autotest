@@ -2,12 +2,8 @@
 @Library('shared-lib@master') _
 
 script {
-        addParameters {
-                concurrent = false
-                rotator = logRotator(daysToKeepStr: '20', numToKeepStr: '100')
-                parameters = [
-                        string(name: 'SERVICE_NAME', defaultValue: '', description: 'The name of the service')
-                ]
+        parameters {
+                string(defaultValue: "TEST", description: 'What environment?', name: 'SERVICE_NAME')
         }
 
         stage("Smoke") {
