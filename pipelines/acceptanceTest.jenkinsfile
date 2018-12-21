@@ -2,8 +2,10 @@
 @Library('shared-lib@master') _
 
 script {
-        parameters {
-                string(defaultValue: "TEST", description: 'What environment?', name: 'SERVICE_NAME')
+        addParameters {
+                parameters = [
+                    string(defaultValue: "TEST", description: 'What environment?', name: 'SERVICE_NAME')
+                ]
         }
 
         stage("Smoke") {
