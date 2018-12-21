@@ -2,12 +2,6 @@
 @Library('shared-lib@master') _
 
 script {
-        addParameters {
-                parameters = [
-                    string(defaultValue: "TEST", description: 'What environment?', name: 'SERVICE_NAME')
-                ]
-        }
-
         stage("Smoke") {
                 echo "Run smoke tests..."
         }
