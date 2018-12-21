@@ -1,0 +1,12 @@
+#!/usr/bin/env groovy
+@Library('shared-lib@master') _
+
+script {
+		stage("Smoke") {
+				echo "Run smoke tests..."
+		}
+
+		stage("Acceptance") {
+				echo "Run acceptance tests..."
+		}
+}
